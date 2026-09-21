@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <!--
+        viewport:
+        - width=device-width        — ширина равна ширине устройства
+        - initial-scale=1           — стартовый зум 1x
+        - maximum-scale=1, user-scalable=no — запрет зума пальцами (важно для VK)
+        - viewport-fit=cover        — корректная работа на iPhone с "чёлкой"
+    -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+
+    <title>Merge Game</title>
+
+    <!-- Стили: фуллскрин, отключение жестов браузера -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--
+        importmap — позволяет писать в коде `from 'pixi.js'`,
+        а браузер сам подставит URL из CDN. Удобно и чисто.
+    -->
+    <script type="importmap">
+    {
+        "imports": {
+            "pixi.js": "https://cdn.jsdelivr.net/npm/pixi.js@8.6.5/dist/pixi.min.mjs"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Единственный элемент в body — контейнер, в который Pixi положит свой <canvas> -->
+    <div id="game-container"></div>
+
+    <!-- type="module" — чтобы работали import/export -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
